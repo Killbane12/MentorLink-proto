@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - MentorLink</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chat-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            height: calc(100vh - 75px); /* Full height minus header */
+            background-color: var(--background-white);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .sidebar { border-right: 1px solid var(--border-color); display: flex; flex-direction: column; }
+        .sidebar-header { padding: 16px; border-bottom: 1px solid var(--border-color); }
+        .contact-list { overflow-y: auto; flex-grow: 1; }
+        .contact-item { display: flex; align-items: center; gap: 12px; padding: 16px; cursor: pointer; border-bottom: 1px solid #f1f3f5; }
+        .contact-item:hover, .contact-item.active { background-color: #f8f9fa; }
+        .contact-item.active { border-right: 3px solid var(--primary-blue); }
+        .contact-item img { width: 50px; height: 50px; border-radius: 50%; }
+        .main-chat { display: flex; flex-direction: column; }
+        .chat-header { padding: 16px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .chat-messages { flex-grow: 1; padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; }
+        .message { max-width: 70%; padding: 12px 16px; border-radius: 18px; line-height: 1.4; }
+        .message.received { background-color: #e9ecef; align-self: flex-start; border-bottom-left-radius: 4px; }
+        .message.sent { background-color: var(--primary-blue); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+        .chat-input { padding: 16px; border-top: 1px solid var(--border-color); display: flex; gap: 16px; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+     <header class="header">
+        <div class="body-container">
+            <a href="index.html" class="logo"><img src="logo.png" alt="MentorLink Logo"><span>MentorLink</span></a>
+            <nav class="navbar">
+                <ul>
+                    <li class="requires-auth"><a id="dashboardLink" href="student_dashboard.html">Dashboard</a></li>
+                    <li><a href="mentors.html">Find a Mentor</a></li>
+                    <li class="requires-auth"><a href="chat.html" class="active">Messages</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="login.html" class="btn btn-secondary requires-guest">Login</a>
+                <a href="login.html" class="btn btn-primary requires-guest">Sign Up</a>
+                <a href="#" class="btn btn-secondary requires-auth" data-logout>Log Out</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-section" style="padding-top: 24px; padding-bottom: 24px;">
+        <div class="body-container">
+            <div class="card chat-layout" style="padding: 0;">
+                <aside class="sidebar">
+                    <div class="sidebar-header">
+                        <input type="text" class="form-control" placeholder="Search messages...">
+                    </div>
+                    <div class="contact-list">
+                        <div class="contact-item active">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw5HDRmMD8_kkBOaazE3z-7h8rx3wGouwR_UvRsXCRu6YDVY0f4E79oH-0XAbaDYVQRc2d0g4HHj3DnrVTffyKnIIr4Xgg4RbGqL_Chde1bFLrxpLjzcP7TjlHAeb5zcaccINv8yYk345A5YueIztuiK92awJ_9_gEmfD4QuL_bo_OSWS8D9Dls4uNnG-a7lNo1k2gIdWF1xCYaXZlggnU-aUIONXpTMl-r1YfshoU82nEsGYsfHsVH-i1Y1teHPcOooN2iyj1Cu3e" alt="Mentor">
+                            <div>
+                                <strong>Dr. Anjali Silva</strong>
+                                <p style="color: var(--text-secondary); font-size: 14px;">Awesome, talk to you then!</p>
+                            </div>
+                        </div>
+                        <!-- Other contacts -->
+                    </div>
+                </aside>
+                <section class="main-chat">
+                    <div class="chat-header">
+                         <div style="display: flex; align-items: center; gap: 12px;">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw5HDRmMD8_kkBOaazE3z-7h8rx3wGouwR_UvRsXCRu6YDVY0f4E79oH-0XAbaDYVQRc2d0g4HHj3DnrVTffyKnIIr4Xgg4RbGqL_Chde1bFLrxpLjzcP7TjlHAeb5zcaccINv8yYk345A5YueIztuiK92awJ_9_gEmfD4QuL_bo_OSWS8D9Dls4uNnG-a7lNo1k2gIdWF1xCYaXZlggnU-aUIONXpTMl-r1YfshoU82nEsGYsfHsVH-i1Y1teHPcOooN2iyj1Cu3e" alt="Mentor" style="width: 40px; height: 40px; border-radius: 50%;">
+                             <div>
+                                <strong>Dr. Anjali Silva</strong>
+                                <p style="color: #28a745; font-size: 14px;">Online</p>
+                             </div>
+                         </div>
+                         <div style="display: flex; gap: 16px;">
+                             <button class="icon-btn"><i class="fas fa-video fa-lg"></i></button>
+                             <button class="icon-btn"><i class="fas fa-phone fa-lg"></i></button>
+                         </div>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message received">Hi Anika, looking forward to our session tomorrow. Do you have any specific topics you'd like to cover?</div>
+                        <div class="message sent">Hi Dr. Silva! Yes, I was hoping we could discuss resume-building strategies for software engineering roles.</div>
+                        <div class="message received">Excellent choice. I have some great resources and tips for that. Come prepared with your current resume.</div>
+                        <div class="message sent">Awesome, talk to you then!</div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" class="form-control" placeholder="Type a message..." style="flex-grow: 1;">
+                        <button class="btn btn-primary">Send</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="body-container">
+            <div class="footer-bottom">&copy; 2025 MentorLink. All rights reserved.</div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

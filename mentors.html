@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Mentor - MentorLink</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .filter-bar { display: flex; gap: 16px; margin-bottom: 40px; }
+        .search-input { flex-grow: 1; }
+        .mentor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 32px; }
+        .mentor-card { text-align: center; }
+        .mentor-card img { width: 120px; height: 120px; border-radius: 50%; margin-bottom: 16px; border: 4px solid var(--background-white); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .mentor-card h4 { font-family: 'Work Sans'; font-size: 20px; }
+        .mentor-card .specialty { color: var(--primary-blue); font-weight: 600; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="body-container">
+            <a href="index.html" class="logo"><img src="logo.png" alt="MentorLink Logo"><span>MentorLink</span></a>
+            <nav class="navbar">
+                <ul>
+                    <li class="requires-auth"><a id="dashboardLink" href="student_dashboard.html">Dashboard</a></li>
+                    <li><a href="mentors.html" class="active">Find a Mentor</a></li>
+                    <li class="requires-auth"><a href="chat.html">Messages</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="login.html" class="btn btn-secondary requires-guest">Login</a>
+                <a href="login.html" class="btn btn-primary requires-guest">Sign Up</a>
+                <a href="#" class="btn btn-secondary requires-auth" data-logout>Log Out</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-section">
+        <div class="body-container">
+            <h1 class="page-title">Find Your Mentor</h1>
+            <p class="page-subtitle">Search our network of world-class mentors to find the perfect expert to guide you.</p>
+
+            <div class="filter-bar">
+                <input type="text" placeholder="Search by name, industry, or keyword..." class="form-control search-input">
+                <select class="form-control" style="width: 200px;"><option>All Industries</option><option>Tech</option><option>Marketing</option></select>
+                <button class="btn btn-primary">Search</button>
+            </div>
+
+            <div class="mentor-grid">
+                <!-- Mentor Card 1 -->
+                <div class="card mentor-card">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw5HDRmMD8_kkBOaazE3z-7h8rx3wGouwR_UvRsXCRu6YDVY0f4E79oH-0XAbaDYVQRc2d0g4HHj3DnrVTffyKnIIr4Xgg4RbGqL_Chde1bFLrxpLjzcP7TjlHAeb5zcaccINv8yYk345A5YueIztuiK92awJ_9_gEmfD4QuL_bo_OSWS8D9Dls4uNnG-a7lNo1k2gIdWF1xCYaXZlggnU-aUIONXpTMl-r1YfshoU82nEsGYsfHsVH-i1Y1teHPcOooN2iyj1Cu3e" alt="Dr. Anjali Silva">
+                    <h4>Dr. Anjali Silva</h4>
+                    <p class="specialty">Software Engineering</p>
+                    <p style="color: var(--text-secondary); font-size: 14px;">20+ years of experience in software development and team leadership.</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 20px;">View Profile</a>
+                </div>
+                <!-- Add more mentor cards -->
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="body-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="color:#fff"><img src="logo.png" alt="logo"><span>MentorLink</span></a>
+                    <p style="color:#94a3b8">Connecting Ambition with Experience.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2025 MentorLink. All rights reserved.</div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

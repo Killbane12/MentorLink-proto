@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MentorLink</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="body-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="MentorLink Logo">
+                <span>MentorLink</span>
+            </a>
+            <div class="user-actions">
+                <span class="requires-guest">Don't have an account?</span>
+                <a href="#signup" class="btn btn-primary requires-guest">Sign Up</a>
+                <a href="#" class="btn btn-secondary requires-auth" data-logout>Log Out</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="auth-container">
+        <div class="card auth-card">
+            <h2 style="font-family: 'Work Sans'; font-size: 28px; font-weight: 700; margin-bottom: 12px;">Welcome Back!</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 24px;">Log in to continue your journey.</p>
+            
+            <div class="auth-toggle">
+                <button id="student-toggle" class="auth-toggle-btn active">I'm a Student</button>
+                <button id="mentor-toggle" class="auth-toggle-btn">I'm a Mentor</button>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                     <div class="form-group" style="margin-bottom: 0; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" id="remember" style="width: 16px; height: 16px;">
+                        <label for="remember" style="margin-bottom: 0; font-weight: 500;">Remember me</label>
+                    </div>
+                    <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 16px;">Log In</button>
+            </form>
+            <p class="text-center mt-24" style="color: var(--text-secondary);">This is a demo. Any credentials will work.</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

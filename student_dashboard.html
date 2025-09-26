@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MentorLink</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="body-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="MentorLink Logo">
+                <span>MentorLink</span>
+            </a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="student_dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="mentors.html">Find a Mentor</a></li>
+                    <li class="requires-auth"><a href="chat.html">Messages</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <div class="notification-container">
+                    <button class="icon-btn"><i class="fas fa-bell fa-lg"></i></button>
+                    <div class="popup">
+                        <div class="popup-header">Notifications</div>
+                        <div class="popup-body">
+                            <div class="notification-item">
+                                <i class="fas fa-calendar-check" style="color: #28a745;"></i>
+                                <div>
+                                    <p>Your session with <strong>Dr. Anjali Silva</strong> is confirmed for tomorrow.</p>
+                                    <small style="color: var(--text-secondary);">1 day ago</small>
+                                </div>
+                            </div>
+                             <div class="notification-item">
+                                <i class="fas fa-comment-dots" style="color: var(--primary-blue);"></i>
+                                <div>
+                                    <p><strong>John Carter</strong> sent you a new message.</p>
+                                    <small style="color: var(--text-secondary);">2 days ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-menu-container">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBph6YcstmpjiwtfegiCwrP6FPfRQ78rApfyM5cKXZGCxOYc-c4oJY4vD_hE5br4jIJ-2I9uKMn2CP_wn1c81vddpnxxCsckCv0AWlxanXzJTbpddwZqGN9ShJ96YrbsRf4IKTh-KcHhBCD7wjlwnQBA2lMSm5dAi8q2kjWloo8gbyTCNnuZh77PW2kN7ui7TctWoB9bbb3YygJ9GQTNsqHh5cpZY4ZjuJjHDK6-vaLO9fSQHlo_ijWi52dbhlK8oxo3brcsQw_Kybn" alt="Anika" class="profile-avatar">
+                    <div class="dropdown-menu">
+                        <a href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-calendar-alt"></i> My Sessions</a>
+                        <a href="skill_assessment.html"><i class="fas fa-tasks"></i> Skill Assessment</a>
+                        <div class="divider"></div>
+                        <a href="#" data-logout><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-section">
+        <div class="body-container">
+            <h1 class="page-title" style="text-align: left; font-size: 40px;">Welcome back, Anika!</h1>
+            <p class="page-subtitle" style="text-align: left; margin-left: 0; max-width: 100%;">Your personalized career journey awaits.</p>
+            
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: flex-start;">
+                <div>
+                    <div class="card" style="margin-bottom: 32px;">
+                        <h3 style="font-family: 'Work Sans'; margin-bottom: 20px;">My Progress</h3>
+                        <label for="progress" style="display: block; margin-bottom: 8px; font-weight: 600;">Career Exploration: 60% Complete</label>
+                        <div style="background-color: #e9ecef; border-radius: 10px; height: 12px; overflow: hidden;">
+                            <div style="width: 60%; height: 100%; background-color: var(--primary-blue); border-radius: 10px;"></div>
+                        </div>
+                        <a href="skill_assessment.html" class="btn btn-secondary" style="margin-top: 20px;">Continue Assessment</a>
+                    </div>
+                     <div class="card">
+                        <h3 style="font-family: 'Work Sans'; margin-bottom: 20px;">Recommended Resources</h3>
+                         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+                             <!-- Resource item -->
+                         </div>
+                    </div>
+                </div>
+                <div class="card">
+                     <h3 style="font-family: 'Work Sans'; margin-bottom: 20px;">Upcoming Sessions</h3>
+                     <!-- Session item -->
+                     <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw5HDRmMD8_kkBOaazE3z-7h8rx3wGouwR_UvRsXCRu6YDVY0f4E79oH-0XAbaDYVQRc2d0g4HHj3DnrVTffyKnIIr4Xgg4RbGqL_Chde1bFLrxpLjzcP7TjlHAeb5zcaccINv8yYk345A5YueIztuiK92awJ_9_gEmfD4QuL_bo_OSWS8D9Dls4uNnG-a7lNo1k2gIdWF1xCYaXZlggnU-aUIONXpTMl-r1YfshoU82nEsGYsfHsVH-i1Y1teHPcOooN2iyj1Cu3e" alt="Mentor" style="width: 50px; height: 50px; border-radius: 50%;">
+                         <div>
+                             <strong>Dr. Anjali Silva</strong>
+                             <p style="color: var(--text-secondary);">Tomorrow at 2:00 PM</p>
+                         </div>
+                     </div>
+                     <a href="chat.html" class="btn btn-primary" style="width: 100%;">Join Call</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="body-container">
+            <div class="footer-bottom">&copy; 2025 MentorLink. All rights reserved.</div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Dashboard - MentorLink</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tabs { display: flex; border-bottom: 1px solid var(--border-color); margin-bottom: 24px; }
+        .tab-btn { padding: 12px 20px; cursor: pointer; background: none; border: none; font-weight: 600; color: var(--text-secondary); position: relative; }
+        .tab-btn.active { color: var(--primary-blue); }
+        .tab-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background-color: var(--primary-blue); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="body-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="MentorLink Logo">
+                <span>MentorLink</span>
+            </a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="mentor_dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="#">My Mentees</a></li>
+                    <li class="requires-auth"><a href="chat.html">Messages</a></li>
+                    <li><a href="#">Schedule</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <div class="notification-container">
+                     <button class="icon-btn"><i class="fas fa-bell fa-lg"></i></button>
+                     <!-- Notification Popup Here -->
+                </div>
+                <div class="profile-menu-container">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw5HDRmMD8_kkBOaazE3z-7h8rx3wGouwR_UvRsXCRu6YDVY0f4E79oH-0XAbaDYVQRc2d0g4HHj3DnrVTffyKnIIr4Xgg4RbGqL_Chde1bFLrxpLjzcP7TjlHAeb5zcaccINv8yYk345A5YueIztuiK92awJ_9_gEmfD4QuL_bo_OSWS8D9Dls4uNnG-a7lNo1k2gIdWF1xCYaXZlggnU-aUIONXpTMl-r1YfshoU82nEsGYsfHsVH-i1Y1teHPcOooN2iyj1Cu3e" alt="Dr. Anjali Silva" class="profile-avatar">
+                     <div class="dropdown-menu">
+                         <a href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+                         <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                         <div class="divider"></div>
+                         <a href="#" data-logout><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-section">
+        <div class="body-container">
+            <h1 class="page-title" style="text-align: left; font-size: 40px;">Mentor Dashboard</h1>
+            
+            <div class="card">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="pending">Pending Requests (3)</button>
+                    <button class="tab-btn" data-tab="accepted">Accepted</button>
+                    <button class="tab-btn" data-tab="all">All</button>
+                </div>
+
+                <div id="pending" class="tab-content active">
+                    <!-- Mentee Request Item -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYuFS6avVYr59BhgwnIj2ueGoK0dgz6e20BMZSaDXJ3wCAtPJIZhvCosNWQg1n461QQ1GSbfrgddJXf_WEZlrrN2KYA1D4Zv9EKY7AeXfN_2zrFpRKdd38Z0AGyS9Gl_W21RcuqFQ92pv_-hC7m-FHqKoEOF93XmyI5n_knUwZyyzI95wjcVL_JxkG1Y_3tfMdwTecNI3uje1FJUku8SEpivrodoM7mbwKCqTtzVcoclckpvZZC9c5I8snHYsh2qZuzmHfNn20KlN5" alt="Nimal" style="width: 50px; height: 50px; border-radius: 50%;">
+                            <div>
+                                <strong style="font-size: 18px;">Nimal Perera</strong>
+                                <p style="color: var(--text-secondary);">University of Colombo</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px;">
+                            <button class="btn btn-secondary">Decline</button>
+                            <button class="btn btn-primary">Accept</button>
+                        </div>
+                    </div>
+                     <!-- Add 2 more similar request items -->
+                </div>
+
+                <div id="accepted" class="tab-content">
+                    <p>Your accepted mentees will appear here.</p>
+                </div>
+                <div id="all" class="tab-content">
+                     <p>All your mentee interactions will be listed here.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="body-container">
+            <div class="footer-bottom">&copy; 2025 MentorLink. All rights reserved.</div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

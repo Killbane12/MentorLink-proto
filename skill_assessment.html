@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Assessment - MentorLink</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .quiz-container { max-width: 800px; margin: 0 auto; }
+        .progress-bar-container { margin-bottom: 24px; }
+        .progress-bar { background-color: #e9ecef; border-radius: 10px; height: 12px; }
+        .progress-bar-fill { height: 100%; background-color: var(--primary-blue); border-radius: 10px; transition: width 0.5s ease; }
+        .quiz-question { display: none; animation: slideIn 0.5s forwards; }
+        .quiz-question.active { display: block; }
+        .quiz-options label {
+            display: block;
+            padding: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+        .quiz-options input[type="radio"] { display: none; }
+        .quiz-options input[type="radio"]:checked + label {
+            border-color: var(--primary-blue);
+            background-color: #f0f7ff;
+        }
+        .quiz-navigation { display: flex; justify-content: space-between; margin-top: 24px; }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="body-container">
+            <a href="index.html" class="logo"><img src="logo.png" alt="MentorLink Logo"><span>MentorLink</span></a>
+            <nav class="navbar">
+                <ul>
+                    <li class="requires-auth"><a id="dashboardLink" href="student_dashboard.html">Dashboard</a></li>
+                    <li><a href="mentors.html">Find a Mentor</a></li>
+                    <li class="requires-auth"><a href="chat.html">Messages</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="login.html" class="btn btn-secondary requires-guest">Login</a>
+                <a href="login.html" class="btn btn-primary requires-guest">Sign Up</a>
+                <a href="#" class="btn btn-secondary requires-auth" data-logout>Log Out</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-section">
+        <div class="body-container quiz-container">
+            <h1 class="page-title">Discover Your Potential</h1>
+            <p class="page-subtitle">Answer a few questions to help us understand your interests and strengths. This will help us recommend the best career paths for you.</p>
+
+            <div class="card">
+                <div class="progress-bar-container">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span id="progress-text">Question 1 of 4</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" id="progressBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div id="quiz-form">
+                    <!-- Question 1 -->
+                    <div id="question1" class="quiz-question active">
+                        <h3 style="font-family: 'Work Sans'; font-size: 22px; margin-bottom: 20px;">I enjoy working on projects that require creativity and innovation.</h3>
+                        <div class="quiz-options">
+                            <input type="radio" id="q1a1" name="q1" value="5"><label for="q1a1">Strongly Agree</label>
+                            <input type="radio" id="q1a2" name="q1" value="4"><label for="q1a2">Agree</label>
+                            <input type="radio" id="q1a3" name="q1" value="3"><label for="q1a3">Neutral</label>
+                        </div>
+                    </div>
+                    <!-- Question 2 -->
+                    <div id="question2" class="quiz-question">
+                        <h3 style="font-family: 'Work Sans'; font-size: 22px; margin-bottom: 20px;">I prefer tasks that involve analyzing data and finding patterns.</h3>
+                        <div class="quiz-options">
+                           <input type="radio" id="q2a1" name="q2" value="5"><label for="q2a1">Strongly Agree</label>
+                           <input type="radio" id="q2a2" name="q2" value="4"><label for="q2a2">Agree</label>
+                           <input type="radio" id="q2a3" name="q2" value="3"><label for="q2a3">Neutral</label>
+                        </div>
+                    </div>
+                    <!-- Question 3 -->
+                    <div id="question3" class="quiz-question">
+                        <h3 style="font-family: 'Work Sans'; font-size: 22px; margin-bottom: 20px;">I like collaborating with others and communicating ideas.</h3>
+                        <div class="quiz-options">
+                           <input type="radio" id="q3a1" name="q3" value="5"><label for="q3a1">Strongly Agree</label>
+                           <input type="radio" id="q3a2" name="q3" value="4"><label for="q3a2">Agree</label>
+                           <input type="radio" id="q3a3" name="q3" value="3"><label for="q3a3">Neutral</label>
+                        </div>
+                    </div>
+                    <!-- Question 4 -->
+                    <div id="question4" class="quiz-question">
+                        <h3 style="font-family: 'Work Sans'; font-size: 22px; margin-bottom: 20px;">I enjoy learning new technologies and keeping up with trends.</h3>
+                        <div class="quiz-options">
+                           <input type="radio" id="q4a1" name="q4" value="5"><label for="q4a1">Strongly Agree</label>
+                           <input type="radio" id="q4a2" name="q4" value="4"><label for="q4a2">Agree</label>
+                           <input type="radio" id="q4a3" name="q4" value="3"><label for="q4a3">Neutral</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quiz-navigation">
+                    <button id="prevBtn" class="btn btn-secondary" style="display: none;">Previous</button>
+                    <button id="nextBtn" class="btn btn-primary">Next</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const questions = document.querySelectorAll('.quiz-question');
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progress-text');
+            const progressPercent = document.getElementById('progress-percent');
+            let currentQuestion = 0;
+            const totalQuestions = questions.length;
+
+            function showQuestion(index) {
+                questions.forEach((q, i) => {
+                    q.classList.toggle('active', i === index);
+                });
+                
+                const progress = ((index) / (totalQuestions - 1)) * 100;
+                progressBar.style.width = `${progress}%`;
+                progressPercent.textContent = `${Math.round(progress)}%`;
+                progressText.textContent = `Question ${index + 1} of ${totalQuestions}`;
+                
+                prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
+                nextBtn.textContent = index === totalQuestions - 1 ? 'Finish Assessment' : 'Next';
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (currentQuestion < totalQuestions - 1) {
+                    currentQuestion++;
+                    showQuestion(currentQuestion);
+                } else {
+                    // On the last question, "Finish" button redirects
+                    progressBar.style.width = `100%`;
+                    progressPercent.textContent = `100%`;
+                    window.location.href = 'career_suggestions.html';
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentQuestion > 0) {
+                    currentQuestion--;
+                    showQuestion(currentQuestion);
+                }
+            });
+
+            showQuestion(0);
+        });
+    </script>
+    <footer class="footer">
+        <div class="body-container">
+            <div class="footer-bottom">&copy; 2025 MentorLink. All rights reserved.</div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
