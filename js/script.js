@@ -16,10 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
             el.style.display = auth.isLoggedIn ? 'none' : '';
         });
 
-        // Point dashboard link based on role
+        // Point dashboard link based on role and current location
         const dashLink = document.getElementById('dashboardLink');
+        const isInPagesDir = window.location.pathname.includes('/pages/');
         if (dashLink) {
-            dashLink.href = auth.role === 'mentor' ? 'mentor_dashboard.html' : 'student_dashboard.html';
+            const dashboardFile = auth.role === 'mentor' ? 'mentor_dashboard.html' : 'student_dashboard.html';
+            dashLink.href = isInPagesDir ? dashboardFile : `pages/${dashboardFile}`;
             dashLink.parentElement.style.display = auth.isLoggedIn ? '' : 'none';
         }
 
@@ -27,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 auth.logout();
-                window.location.href = 'index.html';
+                window.location.href = isInPagesDir ? '../index.html' : 'index.html';
             });
         });
     }
@@ -36,11 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const protectedPages = ['chat.html','student_dashboard.html','mentor_dashboard.html','skill_assessment.html','career_suggestions.html'];
+    const isInPagesDir = window.location.pathname.includes('/pages/');
+    
     if (!auth.isLoggedIn && protectedPages.includes(currentPage)) {
-        window.location.href = 'login.html';
+        window.location.href = isInPagesDir ? 'login.html' : 'pages/login.html';
     }
     if (auth.isLoggedIn && currentPage === 'login.html') {
-        window.location.href = auth.role === 'mentor' ? 'mentor_dashboard.html' : 'student_dashboard.html';
+        const dashboardPath = auth.role === 'mentor' ? 'mentor_dashboard.html' : 'student_dashboard.html';
+        window.location.href = isInPagesDir ? dashboardPath : `pages/${dashboardPath}`;
     }
 
     // --- Global Click Listener to Close Popups ---
@@ -117,7 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault(); // Prevent actual form submission
             auth.role = userRole; // store auth
-            window.location.href = userRole === 'student' ? 'student_dashboard.html' : 'mentor_dashboard.html';
+            const dashboardFile = userRole === 'student' ? 'student_dashboard.html' : 'mentor_dashboard.html';
+            const isInPagesDir = window.location.pathname.includes('/pages/');
+            window.location.href = isInPagesDir ? dashboardFile : `pages/${dashboardFile}`;
         });
     }
     
