@@ -9,8 +9,6 @@
 The goal of this activity is to design a **digital solution** that addresses a **real problem faced by Sri Lankans**. 
 <br>
 
-
-
 ## 📖 Project Overview  
 This repository contains the **prototype and design files** for our **Human-Computer Interaction (HCI) module project**.  
 Our group (Group J) collaboratively designed a **web application prototype** that focuses on usability, accessibility, and modern design principles.  
@@ -32,7 +30,7 @@ We propose a **digital guidance and skill-matching platform** that:
 - 👩‍🏫 Connects **students with mentors**.  
 - 🛠️ Provides insights on **in-demand skills**.  
 - 🎯 Suggests **career pathways** aligned with student interests.  
-- 🎓 Shares updates on **scholarships, internships, and job opportunities**.  
+- 🎓 Shares updates on **workshops,events, internships, and job opportunities**.  
 
 This platform aims to **bridge the gap** between **education and industry**, empowering Sri Lankan students to make better career decisions.  
 
